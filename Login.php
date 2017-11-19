@@ -36,19 +36,16 @@ if (isset($_POST) & !empty($_POST)) {
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
     } else {
-
-        echo"Invalid Login.";
-        echo"<br>";
-        echo" please register for new user";
+        
+        echo '<script type="text/javascript">alert("Invalid Login please register for new account ");</script>';
     }
 }
 
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
     $password = $_SESSION['password'];
-    echo "Hai " . $username . " ";
-    echo "This is the Members Area";
-    echo "<a href='logout.php'>Logout</a>";
+    echo '<script type="text/javascript">alert(" Hi  ' . $username . '  Welcom back  ");</script>';
+    
 }
 ?>
 <html>

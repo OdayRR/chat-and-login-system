@@ -9,17 +9,20 @@ if (isset($_POST) & !empty($_POST)) {
     $password = $_POST['password'];
 
     $Sql = "INSERT INTO `oday` (username , Email ,password)value('$username' , '$Email' ,'$password')";
-    echo $Sql;
+    
+    
+    
     $result = mysqli_query($C, $Sql) or die (mysqli_error($C));
     
     if($result){
         
-    echo" registration complete ";
-        
-        
+    echo '<script type="text/javascript">alert("Thanks for your registration ");</script>';
+    echo '<script type="text/javascript">alert("please login to use chat app ");</script>';
+    
+    
     }else {
         
-        echo"registration faild";
+      echo '<script type="text/javascript">alert("registration is not complete !! ");</script>';;
         
     }
     }

@@ -95,7 +95,7 @@ require('connect.php');
                     });
                     setInterval(function () {
                         $('#chatlogs').load('logs.php');
-                    }, 2000);
+                    }, 500);
                 });
 
             </script>
@@ -104,17 +104,28 @@ require('connect.php');
         </head>
         <body>
             <form name="form1" id="container">
-               Chat Name: <b> <?php echo $_SESSION['username'];  ?></b> <br /> 
-               Message: <br />
+                
+                <a href="logout.php" onclick="return confirm('Are you sure to logout?');">Logout </a></b> <br /> 
+            
+                <a href="#" onclick="return alert('your are already logged in');">login </a>
+                
+                <a href="Delete.php" style="float:right" onclick="return confirm('Are you sure to delete your account?');">Delete your account !!</a><br /><br />
+                
+               Your username: <b> <?php echo $_SESSION['username'];  ?></b> <br /> 
+               
+                <br />
+                
                 <textarea name="message"></textarea><br />
+                
                 <input type="submit" value="Send" onclick="submitChat()"/><br /><br />
                 
 
-                <a href="logout.php">Logout</a><br /><br />
 
             </form>
-            <div id="chatlogs">
-                LOADING CHATLOG...
+            <div id="chatlogs" > 
+                
+                <center>
+                    <img src="loading1.gif" alt="loading" />
+                </center>
             </div>
-
         </body>
