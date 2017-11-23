@@ -40,8 +40,6 @@ if (isset($_POST) & !empty($_POST)) {
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
-        <link rel="stylesheet" href="styles.css" >
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
 
             body{
@@ -94,7 +92,7 @@ if (isset($_POST) & !empty($_POST)) {
     <center>
         <form class="signin" method="POST" autocomplete="off">
 
-            <h3 class="signin-heading"> Please Register </h3>
+            <h3 class="signin-heading"> Sign Up For new account </h3>
 
             <div class="input">
 
@@ -109,7 +107,7 @@ if (isset($_POST) & !empty($_POST)) {
 
             <button class="primary" type="submit">Register</button>
             <button class="primary" type="button" onclick="location.href = 'login.php'">Login</button>
-            <button class="primary" type="button" onclick="location.href = 'chat_room.php'">Chat Room</button>
+            <button class="primary" type="button" onclick="return alert('Please Sign Up for new account first !!!');">Chat Room</button>
 
         </form>
     </center>

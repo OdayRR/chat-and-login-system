@@ -3,13 +3,13 @@ After the Html code i created Database called "login" in myadminPHP
 and i created a table called "Oday"
 using this query : 
 
-CREATE TABLE `oday` (
+CREATE TABLE `chat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL,
-  `message` varchar  (255) NOT NUll
+  `msg` varchar  (255) NOT NUll
   `Time`   CURRENT_TIMESTAMP     atribute : ON UPDATE CURRENT_TIMESTAMP
    PRIMARY KEY (`id`),
    UNIQUE KEY `username` (`username`)
@@ -54,7 +54,6 @@ if (isset($_POST) & !empty($_POST)) {
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
-        <link rel="stylesheet" href="styles.css" >
         <style>
 
             body{

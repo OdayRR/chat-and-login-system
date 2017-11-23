@@ -64,24 +64,6 @@ require('connect.php');
 
             .msgln { margin:0 0 2px 0; }
 
-            #usersOnLine{
-
-                font-family:tahoma;
-
-                font-size:14;
-
-                color:orange;
-
-                border:1px teal solid;
-
-                width:150px;
-
-                height:225px;
-
-                overflow:scroll;
-
-                margin-left:1px;
-            }
             header,footer {
                 padding: 1em;
                 color: blue;
