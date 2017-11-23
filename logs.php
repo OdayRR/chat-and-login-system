@@ -10,7 +10,7 @@ $result1 = mysqli_query($connection, $show_log);
 
 while ($extract = mysqli_fetch_array($result1)) {
     echo "<span style='color:green;'>" . $extract['username'] . "</span> : <span style='color:brown;'>" . $extract['msg'] . "</span> "
-    . "<p style='color:blue; float :right'>" . $extract['Time'] . "<p/><br />";
+    . "<p style='color:blue; float :right'>" . $extract['Time'] . "<p/>";
 }
 
 

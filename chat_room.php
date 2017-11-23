@@ -8,7 +8,6 @@ require('connect.php');
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
-        <link rel="stylesheet" href="styles.css" >
         <style>
             body {
                 font:12px arial;
@@ -118,6 +117,6 @@ require('connect.php');
                         <input type="submit"  id="submitmsg" value="Send" onclick="submitChat()" />
                     </form>
                 </div>
-            <footer>Design & Programming By Oday </footer>
+                <footer>Design & Programming By Oday </footer>
             </body>
         </html>

@@ -117,8 +117,9 @@ if (isset($_POST) & !empty($_POST)) {
             <button class="primary" type="submit">Login</button>
             <button class="primary" type="button" onclick="location.href = 'register.php'">Register</button>
             <button  class="primary" type="button" onclick="return alert('Please login first !!!');">Chat Room</button>
-
+            
         </form>
+        <img width="300" padding="15" src="PHP.gif" alt="This will display an animated GIF" />
     </center>
 </body>
 </html>
