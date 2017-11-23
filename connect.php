@@ -1,14 +1,14 @@
 <?php
 
-$C = mysqli_connect('localhost', 'root', '','Login');
+$connection = mysqli_connect('localhost', 'root', '', 'Login');
 
-if (!$C){
-    die("Database Connection Failed" . mysqli_error($C));
+if (!$connection) {
+    die("Database Connection Failed" . mysqli_error($connection));
 }
 
-$selectDB = mysqli_select_db($C, 'Login');
+$selectDB = mysqli_select_db($connection, 'Login');
 
-if (!$selectDB){
-    die("Database Selection Failed" . mysqli_error($C));
+if (!$selectDB) {
+    die("Database Selection Failed" . mysqli_error($connection));
 }
 

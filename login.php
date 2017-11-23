@@ -10,7 +10,7 @@ CREATE TABLE `oday` (
   `password` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `message` varchar  (255) NOT NUll
-   `Time`   CURRENT_TIMESTAMP     atribute : ON UPDATE CURRENT_TIMESTAMP
+  `Time`   CURRENT_TIMESTAMP     atribute : ON UPDATE CURRENT_TIMESTAMP
    PRIMARY KEY (`id`),
    UNIQUE KEY `username` (`username`)
 )
@@ -18,7 +18,6 @@ CREATE TABLE `oday` (
 -->
 
 <?php
-
 session_start();
 require('connect.php');
 
@@ -27,24 +26,22 @@ if (isset($_POST) & !empty($_POST)) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $q = "SELECT * FROM `oday` WHERE username='$username' and password='$password'";
+    $varlogin = "SELECT * FROM `chat` WHERE username='$username' and password='$password'";
 
-    $result = mysqli_query($C, $q) or die(mysqli_error($C));
+    $result = mysqli_query($connection, $varlogin) or die(mysqli_error($connection));
     $count = mysqli_num_rows($result);
 
     if ($count == 1) {
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
-    } else {
-        
-        echo '<script type="text/javascript">alert("Invalid Login please register for new account ");</script>';
-    }
-}
 
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
-    $password = $_SESSION['password'];
-    echo '<script type="text/javascript">alert(" Hi  ' . $username . '  Welcom back  ");</script>';
+        echo '<script type="text/javascript">alert(" Hi  ' . $username . '  Welcom back  ");</script>';
+        echo "<script>window.location.assign('chat_room.php');</script>";
+    } else {
+
+        echo '<script type="text/javascript">alert("Invalid Login please register for new account ");</script>';
+        echo "<script>window.location.assign('register.php');</script>";
+    }
     
 }
 ?>
@@ -53,10 +50,11 @@ if (isset($_SESSION['username'])) {
         <meta charset="UTF-8">
         <title> PHP login System </title>
 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
         <link rel="stylesheet" href="styles.css" >
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
 
             body{
@@ -99,10 +97,6 @@ if (isset($_SESSION['username'])) {
                 border-top-left-radius: 0;
                 border-top-right-radius: 0;
             }
-
-
-
-
         </style>
     </head>
     <body>
@@ -121,8 +115,8 @@ if (isset($_SESSION['username'])) {
             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
             <button class="primary" type="submit">Login</button>
-            <button class="primary" type="button" onclick="location.href='register.php'">Register</button>
-            <button  class="primary" type="button" onclick="location.href='index.php'">Chat Room</button>
+            <button class="primary" type="button" onclick="location.href = 'register.php'">Register</button>
+            <button  class="primary" type="button" onclick="return alert('Please login first !!!');">Chat Room</button>
 
         </form>
     </center>

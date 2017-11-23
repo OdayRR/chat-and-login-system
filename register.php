@@ -8,25 +8,31 @@ if (isset($_POST) & !empty($_POST)) {
     $Email = $_POST['Email'];
     $password = $_POST['password'];
 
-    $Sql = "INSERT INTO `oday` (username , Email ,password)value('$username' , '$Email' ,'$password')";
-    
-    
-    
-    $result = mysqli_query($C, $Sql) or die (mysqli_error($C));
-    
-    if($result){
-        
-    echo '<script type="text/javascript">alert("Thanks for your registration ");</script>';
-    echo '<script type="text/javascript">alert("please login to use chat app ");</script>';
-    
-    
-    }else {
-        
-      echo '<script type="text/javascript">alert("registration is not complete !! ");</script>';;
-        
+    $Sql = "INSERT INTO `chat` (username , Email ,password)value('$username' , '$Email' ,'$password')";
+
+
+
+    $result = mysqli_query($connection, $Sql) or die(mysqli_error($connection));
+
+    if ($result) {
+
+        echo '<script type="text/javascript">alert("Thanks for your registration you are logged in now.");</script>';
+
+        $sql2 = "SELECT * FROM `chat` WHERE username='$username' and password='$password'";
+
+        $result = mysqli_query($connection, $sql2) or die(mysqli_error($connection));
+        $count = mysqli_num_rows($result);
+        if ($count == 1) {
+            $_SESSION['username'] = $username;
+            $_SESSION['password'] = $password;
+            echo "<script>window.location.assign('chat_room.php');</script>";
+        }
+    } else {
+
+        echo '<script type="text/javascript">alert("registration is not complete !! ");</script>';
     }
-    }
-    ?>
+}
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -102,11 +108,10 @@ if (isset($_POST) & !empty($_POST)) {
             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
             <button class="primary" type="submit">Register</button>
-            <button class="primary" type="button" onclick="location.href='Login.php'">Login</button>
-            <button class="primary" type="button" onclick="location.href='index.php'">Chat Room</button>
+            <button class="primary" type="button" onclick="location.href = 'login.php'">Login</button>
+            <button class="primary" type="button" onclick="location.href = 'chat_room.php'">Chat Room</button>
 
         </form>
     </center>
 </body>
 </html>
-

@@ -1,15 +1,16 @@
 <?php
+
 session_start();
 require('connect.php');
 
 
-$D = "SELECT `username`,  `message` ,`Time` FROM oday ORDER BY Time DESC";
+$show_log = "SELECT `username`,  `msg` ,`Time` FROM chat ORDER BY Time DESC";
 
-$result1 = mysqli_query($C, $D);
+$result1 = mysqli_query($connection, $show_log);
 
-while($extract = mysqli_fetch_array($result1)) {
-	echo "<span style='color:green;'>" . $extract['username'] . "</span> : <span style='color:brown;'>" . $extract['message'] . "</span> "
-                . "<p style='color:blue; float :right'>". $extract['Time']."<p/><br />";
+while ($extract = mysqli_fetch_array($result1)) {
+    echo "<span style='color:green;'>" . $extract['username'] . "</span> : <span style='color:brown;'>" . $extract['msg'] . "</span> "
+    . "<p style='color:blue; float :right'>" . $extract['Time'] . "<p/><br />";
 }
 
 

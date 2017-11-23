@@ -1,20 +1,21 @@
 <?php
+
 session_start();
 
 require('connect.php');
-$username= $_SESSION['username'];
+$username = $_SESSION['username'];
 $msg = $_REQUEST['message'];
 
 
+$sql = "UPDATE chat SET msg = '$msg'  WHERE username='$username'";
+
+$result1 = mysqli_query($connection, $sql);
 
 
-
-$sql = "UPDATE oday SET message='$msg' WHERE username='$username'";
-
-
-$result1 = mysqli_query($C,$sql);
-
-
-while($extract = mysqli_fetch_array($result1)) {
-	echo "<span>" . $extract['username'] . "</span>: <span>" . $extract['message'] . "</span><br />";
+while ($extract = mysqli_fetch_array($result1)) {
+    echo "<span>" . $extract['username'] . "</span>: <span>" . $extract['message'] . "</span><br />";
 }
+
+
+//INSERT INTO `chat` (msg)value('$msg')
+//UPDATE chat SET msg = '$msg'  WHERE username='$username'"
