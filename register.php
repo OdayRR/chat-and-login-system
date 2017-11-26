@@ -82,10 +82,6 @@ if (isset($_POST) & !empty($_POST)) {
                 border-top-left-radius: 0;
                 border-top-right-radius: 0;
             }
-
-
-
-
         </style>
     </head>
     <body>

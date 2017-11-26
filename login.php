@@ -34,6 +34,10 @@ if (isset($_POST) & !empty($_POST)) {
     if ($count == 1) {
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
+        
+        $active = "UPDATE chat SET active = 1  WHERE username='$username'";
+
+        $Myresult = mysqli_query($connection, $active);
 
         echo '<script type="text/javascript">alert(" Hi  ' . $username . '  Welcom back  ");</script>';
         echo "<script>window.location.assign('chat_room.php');</script>";

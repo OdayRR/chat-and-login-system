@@ -13,7 +13,7 @@ $result1 = mysqli_query($connection, $sql);
 
 
 while ($extract = mysqli_fetch_array($result1)) {
-    echo "<span>" . $extract['username'] . "</span>: <span>" . $extract['message'] . "</span><br />";
+    echo " ". $extract['message'] . "</span><br />";
 }
 
 
