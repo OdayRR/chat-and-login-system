@@ -8,7 +8,7 @@ if (isset($_POST) & !empty($_POST)) {
     $Email = $_POST['Email'];
     $password = $_POST['password'];
 
-    $Sql = "INSERT INTO `chat` (username , Email ,password)value('$username' , '$Email' ,'$password')";
+    $Sql = "INSERT INTO `chat` (username , Email ,password,active)value('$username' , '$Email' ,'$password','1')";
 
 
 

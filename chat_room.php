@@ -1,8 +1,5 @@
 <?php
-
 session_start();
-
-
 ?>
 
 <html>
@@ -14,8 +11,30 @@ session_start();
                 font:12px arial;
                 color: #222;
                 text-align:center;
-                padding:75px; 
+                padding:0px; 
                 background-color: #eee;
+                margin-bottom: 30px;
+            }
+
+            header {
+                height: 90px;
+                color: white;
+                background:#6699ff;
+                text-align: center;
+                padding-top: 2em;
+                font-size: 18px;
+                margin-bottom:20px;
+            }
+            footer {
+                height: 90px;
+                background:#6699ff ;
+                text-align: center;
+                padding-top: 2em;
+                font-size: 18px;
+                color: white;
+                position: relative;
+                margin-top: 40px;
+
             }
 
             form, p, span {
@@ -25,15 +44,15 @@ session_start();
             input { font:12px arial; }
 
             a {
-                color:#0000FF;
+                color:whitesmoke;
                 text-decoration:none; }
 
             a:hover { text-decoration:underline; }
 
             #container{
-                margin:3 auto;
+                
                 padding-bottom:50px;
-                background:#f1f1f1;
+                background-image:url("b.jpg");
                 width:900px;
                 border:5px solid #ACD8F0; 
                 border-radius: 5px;
@@ -48,37 +67,30 @@ session_start();
                 background:#fff;
                 height:270px;
                 width:630px;
-                border:1px solid #ACD8F0;
+                border:1px solid black;
                 overflow:auto; 
                 position: relative;
             }
 
             #usermsg {
-                width:395px;
+                width:400px;
                 border:1px solid #ACD8F0; }
 
             #submit { width: 60px; }
 
-            #menu { padding:12.5px 25px 12.5px 25px; }
+            #menu { padding:12.5px 25px 12.5px 25px;}
 
-            .welcome { float:left; }
+            .welcome { float:left; color: white}
+            .welcome1 { text-align: center; color: white}
 
             .msgln { margin:0 0 2px 0; }
-
-            header,footer {
-
-                padding: 1em;
-                color: blue;
-                clear: left;
-                text-align: center;
-            }
 
             .container2
             {margin:0 auto;
              padding-bottom:50px;
-             background:#f1f1f1;
-             width:300px;
-             height: 510px;
+             background-image:url("bb.jpg");
+             width:250px;
+             height: 510.7px;
              border:5px solid #ACD8F0; 
              border-radius: 5px;
             }
@@ -89,9 +101,9 @@ session_start();
                 padding:10px;
                 background:#eee;
                 height:390px;
-                width:200px;
-                border:1px solid #ACD8F0;
-                overflow:auto; 
+                width:180px;
+                border:1px solid black;
+                overflow: visible; 
                 position: relative;
             }
 
@@ -109,9 +121,9 @@ session_start();
     </head>
     <body>
         <header>PHP Chat room</header>
-        <div style="postion:center">
+        
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-xs-5" style="padding-left:140px">
                     <div id="container">
 
 
@@ -132,27 +144,26 @@ session_start();
 
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-6"  style="padding-left:230px">
                     <div class="container2">
                         <div id="menu">
 
 
-                            <p class="welcome">Online Users</p>
-                            
+                            <p class="welcome1"> Online & Offline Users</p>
+
                             <div style="clear:both"> </div>
 
                             <div id="chatlogs2"> 
-                            
-                            
+
+
+
+                            </div>
                             
                         </div>
-                            <input type="submit"  id="submitmsg" value="Refresh" onclick=" users()"/>
                     </div>
                 </div>
-            </div>
-        </div>   
+            </div>   
 
-
-        <footer>Design & Programming By Oday </footer>
+            <footer>Design & Programming By Oday </footer>
     </body>
 </html>

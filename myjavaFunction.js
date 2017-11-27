@@ -42,11 +42,6 @@ function users(){
 	xhr1.send();
 
 }
-$(document).ready(function () {
-    $.ajaxSetup({
-        cache: false
-    });
     setInterval(function () {
         $('#chatlogs2').load('user.php');
     }, 10);
-});
