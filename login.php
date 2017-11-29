@@ -34,7 +34,7 @@ if (isset($_POST) & !empty($_POST)) {
     if ($count == 1) {
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
-        
+
         $active = "UPDATE chat SET active = 1  WHERE username='$username'";
 
         $Myresult = mysqli_query($connection, $active);
@@ -46,7 +46,6 @@ if (isset($_POST) & !empty($_POST)) {
         echo '<script type="text/javascript">alert("Invalid Login please register for new account ");</script>';
         echo "<script>window.location.assign('register.php');</script>";
     }
-    
 }
 ?>
 <html>
@@ -63,7 +62,7 @@ if (isset($_POST) & !empty($_POST)) {
             body{
                 padding-top:40px;
                 padding-bottom: 40px;
-                background-color: #eee;
+                background-image:url("1.jpg");
             }
 
             .signin {
@@ -100,13 +99,30 @@ if (isset($_POST) & !empty($_POST)) {
                 border-top-left-radius: 0;
                 border-top-right-radius: 0;
             }
+            .submit { 
+                color: white;
+                border-radius: 2px;
+                background: rgb(66, 184, 221);
+            }
+            h3{ font-size: 24px;
+                line-height: 40px;
+                margin: 1em 0 0.5em 0;
+                color: #343434;
+                font-size: 22px;
+                line-height: 40px;
+                font-weight: normal;
+                text-transform: uppercase;
+                font-family: 'Orienta', sans-serif;
+                letter-spacing: 1px;
+                font-style: italic;
+            }
         </style>
     </head>
     <body>
     <center>
         <form class="signin" method="POST" autocomplete="off">
 
-            <h3 class="signin-heading"> Please Login </h3>
+            <h3 class="signin-heading" style="color: #fff;"> Please Login </h3>
 
             <div class="input">
 
@@ -117,10 +133,10 @@ if (isset($_POST) & !empty($_POST)) {
 
             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-            <button class="primary" type="submit">Login</button>
-            <button class="primary" type="button" onclick="location.href = 'register.php'">Register</button>
-            <button  class="primary" type="button" onclick="return alert('Please login first !!!');">Chat Room</button>
-            
+            <button class="submit" type="submit">Login</button>
+            <button class="submit" type="button" onclick="location.href = 'register.php'">Register</button>
+            <button  class="submit" type="button" onclick="return alert('Please login first !!!');">Chat Room</button>
+
         </form>
         <img width="300" padding="15" src="PHP.gif" alt="This will display an animated GIF" />
     </center>

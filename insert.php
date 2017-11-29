@@ -7,15 +7,13 @@ $username = $_SESSION['username'];
 $msg = $_REQUEST['message'];
 
 
-$sql = "UPDATE chat SET msg = '$msg'  WHERE username='$username'";
+$sql = "INSERT INTO `message` (id ,chat_id , msg)
+        VALUES('',(SELECT chat.id FROM chat
+        WHERE chat.username = '$username') ,'$msg');";
 
 $result1 = mysqli_query($connection, $sql);
 
 
 while ($extract = mysqli_fetch_array($result1)) {
-    echo " ". $extract['message'] . "</span><br />";
+    echo " " . $extract['message'] . "</span><br />";
 }
-
-
-//INSERT INTO `chat` (msg)value('$msg')
-//UPDATE chat SET msg = '$msg'  WHERE username='$username'"

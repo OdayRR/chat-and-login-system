@@ -29,19 +29,20 @@ $(document).ready(function () {
 });
 
 
-function users(){
-	xhr1 = new XMLHttpRequest();
-        xhr1.onreadystatechange = function()
-	{
-            if (xhr1.readyState == 4 && xhr1.status == 200) {
-		document.getElementById('chatlogs2').innerHTML = xhr1.responseText;
-            }
-	}
-	xhr1.open('POST' , 'user.php' , true);
-	xhr1.setRequestHeader('content-type','application/x-www-form-urlencoded');
-	xhr1.send();
+function users() {
+    xhr1 = new XMLHttpRequest();
+    xhr1.onreadystatechange = function ()
+    {
+        if (xhr1.readyState == 4 && xhr1.status == 200) {
+            document.getElementById('chatlogs2').innerHTML = xhr1.responseText;
+        }
+    }
+    xhr1.open('POST', 'user.php', true);
+    xhr1.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+    xhr1.send();
 
 }
-    setInterval(function () {
-        $('#chatlogs2').load('user.php');
-    }, 10);
+
+setInterval(function () {
+    $('#chatlogs2').load('user.php');
+}, 10);

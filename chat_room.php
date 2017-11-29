@@ -12,14 +12,15 @@ session_start();
                 color: #222;
                 text-align:center;
                 padding:0px; 
-                background-color: #eee;
+                background-image:url("2.jpg");
                 margin-bottom: 30px;
+                overflow: hidden;
             }
 
             header {
                 height: 90px;
                 color: white;
-                background:#6699ff;
+                background-image:url("bbb.jpg");
                 text-align: center;
                 padding-top: 2em;
                 font-size: 18px;
@@ -27,7 +28,7 @@ session_start();
             }
             footer {
                 height: 90px;
-                background:#6699ff ;
+                background-image:url("4.jpg");
                 text-align: center;
                 padding-top: 2em;
                 font-size: 18px;
@@ -39,7 +40,7 @@ session_start();
 
             form, p, span {
                 margin:0;
-                padding:25; }
+                padding:25px; }
 
             input { font:12px arial; }
 
@@ -50,12 +51,12 @@ session_start();
             a:hover { text-decoration:underline; }
 
             #container{
-                
-                padding-bottom:50px;
+
+                padding-bottom:50px; 
                 background-image:url("b.jpg");
                 width:900px;
                 border:5px solid #ACD8F0; 
-                border-radius: 5px;
+                border-radius: 1px;
             }
 
 
@@ -66,33 +67,34 @@ session_start();
                 padding:10px;
                 background:#fff;
                 height:270px;
-                width:630px;
+                width:620px;
                 border:1px solid black;
-                overflow:auto; 
-                position: relative;
+                overflow: scroll;
+
             }
 
             #usermsg {
                 width:400px;
                 border:1px solid #ACD8F0; }
 
-            #submit { width: 60px; }
+            #submit { width: 63px;
+                      border:1px solid #ACD8F0;
+            }
 
             #menu { padding:12.5px 25px 12.5px 25px;}
 
             .welcome { float:left; color: white}
             .welcome1 { text-align: center; color: white}
 
-            .msgln { margin:0 0 2px 0; }
-
             .container2
-            {margin:0 auto;
-             padding-bottom:50px;
-             background-image:url("bb.jpg");
-             width:250px;
-             height: 510.7px;
-             border:5px solid #ACD8F0; 
-             border-radius: 5px;
+            {
+                margin:0 auto;
+                padding-bottom:50px;
+                background-image:url("bb.jpg");
+                width:250px;
+                height: 510.7px;
+                border:5px solid #ACD8F0; 
+                border-radius: 5px;
             }
             #chatlogs2 {
 
@@ -103,7 +105,7 @@ session_start();
                 height:390px;
                 width:180px;
                 border:1px solid black;
-                overflow: visible; 
+                overflow: scroll; 
                 position: relative;
             }
 
@@ -121,49 +123,50 @@ session_start();
     </head>
     <body>
         <header>PHP Chat room</header>
-        
-            <div class="row">
-                <div class="col-xs-5" style="padding-left:140px">
-                    <div id="container">
+
+        <div class="row">
+            <div class="col-xs-5" style="padding-left:140px">
+                <div id="container">
 
 
-                        <div id="menu">
+                    <div id="menu">
 
 
-                            <p class="welcome">Welcome, <b> <?php echo $_SESSION['username']; ?></b></p>
-                            <p class="welcome"><a href="logout.php" onclick="return confirm('Are you sure to logout?');">Logout</a></p>
-                            <p class="welcome"><a href="delete.php" onclick="return confirm('Are you sure to delete your account?');">Delete</a></p>
-                            <div style="clear:both"> </div>
+                        <p class="welcome">Welcome, <b> <?php echo $_SESSION['username']; ?></b></p>
+                        <p class="welcome"><a href="logout.php" onclick="return confirm('Are you sure to logout?');">Logout</a></p>
+                        <p class="welcome"><a href="delete.php" onclick="return confirm('Are you sure to delete your account?');">Delete</a></p>
+                        <div style="clear:both"> </div>
+
+                    </div>
+                    <div id="chatlogs"> </div>
+                    <form name="form1">
+                        <input type="submit"  id="submit" value="Send" onclick="submitChat()"/>
+                        <input name="message" type="text" id="usermsg" size="50" autocomplete="off" />
+
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-xs-6"  style="padding-left:230px">
+                <div class="container2">
+                    <div id="menu">
+
+
+                        <p class="welcome1"> Online & Offline Users</p>
+
+                        <div style="clear:both"> </div>
+
+                        <div id="chatlogs2"> 
+
+
 
                         </div>
-                        <div id="chatlogs"> </div>
-                        <form name="form1">
-                            <input name="message" type="text" id="usermsg" size="63" autocomplete="off" />
-                            <input type="submit"  id="submitmsg" value="Send" onclick="submitChat()" />
-                        </form>
 
                     </div>
                 </div>
-                <div class="col-xs-6"  style="padding-left:230px">
-                    <div class="container2">
-                        <div id="menu">
+            </div>
+        </div>   
 
-
-                            <p class="welcome1"> Online & Offline Users</p>
-
-                            <div style="clear:both"> </div>
-
-                            <div id="chatlogs2"> 
-
-
-
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>   
-
-            <footer>Design & Programming By Oday </footer>
+        <footer>Design & Programming By Oday </footer>
     </body>
 </html>

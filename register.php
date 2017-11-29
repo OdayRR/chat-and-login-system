@@ -10,17 +10,24 @@ if (isset($_POST) & !empty($_POST)) {
 
     $Sql = "INSERT INTO `chat` (username , Email ,password,active)value('$username' , '$Email' ,'$password','1')";
 
-
-
     $result = mysqli_query($connection, $Sql) or die(mysqli_error($connection));
+
+
+    $sql2 = "INSERT INTO `message` (`chat_id`)
+             SELECT chat.id 
+             FROM chat 
+             WHERE chat.username = '$username'";
+
+    $second_result = mysqli_query($connection, $sql2) or die(mysqli_error($connection));
+
 
     if ($result) {
 
         echo '<script type="text/javascript">alert("Thanks for your registration you are logged in now.");</script>';
 
-        $sql2 = "SELECT * FROM `chat` WHERE username='$username' and password='$password'";
+        $sql3 = "SELECT * FROM `chat` WHERE username='$username' and password='$password'";
 
-        $result = mysqli_query($connection, $sql2) or die(mysqli_error($connection));
+        $result = mysqli_query($connection, $sql3) or die(mysqli_error($connection));
         $count = mysqli_num_rows($result);
         if ($count == 1) {
             $_SESSION['username'] = $username;
@@ -45,19 +52,20 @@ if (isset($_POST) & !empty($_POST)) {
             body{
                 padding-top:40px;
                 padding-bottom: 40px;
-                background-color: #eee;
-            }
+                background-image:url("1.jpg");
 
+            }
             .signin {
                 max-width: 330px;
                 padding: 15px;
                 margin: 0 auto;
             }
             .signin .signin-heading,
-            .signin .checkbox {
+            .signin  {
                 margin-bottom: 10px;
+
             }
-            .signin .checkbox {
+            .signin {
                 font-weight: normal;
             }
             .signin .form-control {
@@ -82,13 +90,31 @@ if (isset($_POST) & !empty($_POST)) {
                 border-top-left-radius: 0;
                 border-top-right-radius: 0;
             }
+            .submit { 
+                color: white;
+                border-radius: 2px;
+                background: rgb(66, 184, 221);
+            }
+            h3{ 
+                font-size: 24px;
+                line-height: 40px;
+                margin: 1em 0 0.5em 0;
+                color: #343434;
+                font-size: 22px;
+                line-height: 40px;
+                font-weight: normal;
+                text-transform: uppercase;
+                font-family: 'Orienta', sans-serif;
+                letter-spacing: 1px;
+                font-style: italic;
+            }
         </style>
     </head>
     <body>
     <center>
         <form class="signin" method="POST" autocomplete="off">
 
-            <h3 class="signin-heading"> Sign Up For new account </h3>
+            <h3 class="" style="color: #fff;"> Sign Up For new account </h3>
 
             <div class="input">
 
@@ -101,9 +127,9 @@ if (isset($_POST) & !empty($_POST)) {
 
             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-            <button class="primary" type="submit">Register</button>
-            <button class="primary" type="button" onclick="location.href = 'login.php'">Login</button>
-            <button class="primary" type="button" onclick="return alert('Please Sign Up for new account first !!!');">Chat Room</button>
+            <button class="submit" type="submit">Register</button>
+            <button class="submit" type="button" onclick="location.href = 'login.php'">Login</button>
+            <button class="submit" type="button" onclick="return alert('Please Sign Up for new account first !!!');">Chat Room</button>
 
         </form>
     </center>
