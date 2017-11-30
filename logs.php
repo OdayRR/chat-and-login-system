@@ -19,18 +19,3 @@ if ($result1) {
 } else {
     echo "Invalid query:";
 }
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-    

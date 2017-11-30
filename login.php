@@ -1,7 +1,7 @@
 <!--
-After the Html code i created Database called "login" in myadminPHP
-and i created a table called "Oday"
-using this query : 
+After the Html code i created Database called "login" in MyaAminPHP
+and i created a table called "chat" and the other table called "message"
+using this information : 
 
 CREATE TABLE `chat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -9,10 +9,16 @@ CREATE TABLE `chat` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL,
+   PRIMARY KEY (`id`),
+   
+)
+CREATE TABLE `message` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `chat_id` int NOT NULL,
   `msg` varchar  (255) NOT NUll
   `Time`   CURRENT_TIMESTAMP     atribute : ON UPDATE CURRENT_TIMESTAMP
    PRIMARY KEY (`id`),
-   UNIQUE KEY `username` (`username`)
+   Forign Key (`chat_id`) referance to (`id`) in chat table .
 )
 
 -->
@@ -135,7 +141,7 @@ if (isset($_POST) & !empty($_POST)) {
 
             <button class="submit" type="submit">Login</button>
             <button class="submit" type="button" onclick="location.href = 'register.php'">Register</button>
-            <button  class="submit" type="button" onclick="return alert('Please login first !!!');">Chat Room</button>
+            <button class="submit" type="button" onclick="return alert('Please login first !!!');">Chat Room</button>
 
         </form>
         <img width="300" padding="15" src="PHP.gif" alt="This will display an animated GIF" />

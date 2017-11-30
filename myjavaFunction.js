@@ -13,7 +13,7 @@ function submitChat() {
         }
     }
 
-    xmlhttp.open('GET', 'insert.php?message=' + message, true);
+    xmlhttp.open('POST', 'insert.php?message=' + message, true);
     xmlhttp.setRequestHeader("Content-type", "application/json");
     xmlhttp.send();
 
@@ -45,4 +45,4 @@ function users() {
 
 setInterval(function () {
     $('#chatlogs2').load('user.php');
-}, 10);
+}, 100);

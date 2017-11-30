@@ -22,4 +22,3 @@ $result_offline = mysqli_query($connection, $query2);
 while ($extract = mysqli_fetch_array($result_offline)) {
     echo "<font color='Red'> " . $extract['username'] . " (Offline)" . "</font><br><br><br>";
 }
-

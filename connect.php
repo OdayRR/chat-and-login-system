@@ -11,4 +11,3 @@ $selectDB = mysqli_select_db($connection, 'Login');
 if (!$selectDB) {
     die("Database Selection Failed" . mysqli_error($connection));
 }
-
