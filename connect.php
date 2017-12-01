@@ -1,6 +1,6 @@
 <?php
 
-$connection = mysqli_connect('localhost', 'root', '', 'Login');
+$connection = mysqli_connect('localhost', 'phpzwollegen1', 'itphtoren', 'Login');
 
 if (!$connection) {
     die("Database Connection Failed" . mysqli_error($connection));
